@@ -6,25 +6,93 @@ import {Link} from 'react-router-dom';
 class Dog extends Component {
     constructor(props) {
       super(props);
-      let stateObj = {
-          name: ''
-      }
+      this.ownerToDog = [
+        {
+          "ownerId": 29,
+          "dogId": 420,
+          "address": "643 Columbia Place, Muir, New York, 5076",
+          "phone": "+1 (833) 519-2542"
+        },
+        {
+          "ownerId": 14,
+          "dogId": 30,
+          "address": "789 Fulton Street, Hayes, Montana, 1331",
+          "phone": "+1 (872) 438-2380"
+        },
+        {
+          "ownerId": 91,
+          "dogId": 73,
+          "address": "722 Strong Place, Toftrees, Utah, 3746",
+          "phone": "+1 (893) 541-3618"
+        },
+        {
+          "ownerId": 26,
+          "dogId": 11,
+          "address": "440 Falmouth Street, Harviell, Pennsylvania, 8116",
+          "phone": "+1 (854) 587-3854"
+        },
+        {
+          "ownerId": 31,
+          "dogId": 53,
+          "address": "686 Saratoga Avenue, Westphalia, Palau, 3477",
+          "phone": "+1 (852) 500-2770"
+        },
+        {
+          "ownerId": 81,
+          "dogId": 51,
+          "address": "251 Catherine Street, Englevale, Virginia, 2927",
+          "phone": "+1 (832) 542-3354"
+        },
+        {
+          "ownerId": 96,
+          "dogId": 27,
+          "address": "640 Kosciusko Street, Brantleyville, Northern Mariana Islands, 4556",
+          "phone": "+1 (924) 484-2785"
+        },
+        {
+          "ownerId": 18,
+          "dogId": 12,
+          "address": "492 Cornelia Street, Nettie, Alaska, 9211",
+          "phone": "+1 (862) 562-3230"
+        },
+        {
+          "ownerId": 95,
+          "dogId": 75,
+          "address": "154 Congress Street, Kenvil, Iowa, 6403",
+          "phone": "+1 (802) 531-2809"
+        }
+      ];
+      let stateObj = {};
+
         if(props.location.state){
             stateObj = props.location.state.data;
-        }
+          }
+        stateObj.ownerInfo = {
+          address: '',
+          phone: ''
+        };
+        // stateObj.name = ''; //todo is needed ?
+          
       this.state = stateObj;
     }
 
-    componentWillMount() {
+    componentDidMount() {
+        // console.log(this.props.match.params.chipId)
+
+        //get ownertodo info
+        let ownerTodogMatch = this.ownerToDog.find(owner => owner.dogId === parseInt(this.props.match.params.chipId) );
+        // console.log(ownerTodogMatch);
         if(this.props.location.state && this.props.location.state.data){
             // continue with data render
         }  else {
             //get from server
         }
+        this.setState({ownerInfo: ownerTodogMatch || {}})
     }
   
     render() {
-    const {type, name, picture, breed, dateOfBirth, sex, color, bloodType, weight, numOfVaccines, registered, contactNumber, address} = this.state;
+    const {type, name, picture, breed, dateOfBirth, sex, color, bloodType, weight, numOfVaccines, registered, contactNumber} = this.state;
+    const {address, phone} = this.state.ownerInfo;
       console.log(this.state);
       return ( 
         <div>
@@ -47,10 +115,8 @@ class Dog extends Component {
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        22 Friends
-      </a>
+    <p>{address}</p>
+    <p>{phone}</p>
     </Card.Content>
   </Card>
         </div>

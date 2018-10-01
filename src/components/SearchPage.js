@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Input, Card, Icon } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
-import image from '../IMAG1935.jpg';
 
 class SearchPage extends Component {
     constructor(props){ 
@@ -24,83 +23,8 @@ class SearchPage extends Component {
             "owner": "0x23054",
             "contactNumber": "+1 (915) 518-3554",
             "address": "200 Eaton Court, Riegelwood, Palau, 3093",
-            "registered": "2017-07-25"
-          },
-          {
-            "_chipId": "5bb1e46d43a16d3a7d5d96b8",
-            "chipId": 27,
-            "type": "dog",
-            "name": "Lauri",
-            "picture": "https://images.dog.ceo/breeds/malinois/n02105162_1757.jpg",
-            "breed": "Malinois",
-            "sex": "M",
-            "color": "brown",
-            "dateOfBirth": "2016-02-03",
-            "bloodType": "DEA",
-            "weight": 11,
-            "numOfVaccines": "",
-            "lastChange": "2018-06-23",
-            "owner": "0x26036",
-            "contactNumber": "+1 (954) 537-3343",
-            "address": "188 Sunnyside Court, Venice, Louisiana, 4567",
-            "registered": "2016-08-10"
-          },
-          {
-            "_chipId": "5bb1e46dcd3d7d18551ee528",
-            "chipId": 12,
-            "type": "dog",
-            "name": "Bush",
-            "picture": "https://images.dog.ceo/breeds/malinois/n02105162_5370.jpg",
-            "breed": "Malinois",
-            "sex": "M",
-            "color": "white",
-            "dateOfBirth": "2016-02-11",
-            "bloodType": "DEA+",
-            "weight": 6,
-            "numOfVaccines": "",
-            "lastChange": "2018-07-27",
-            "owner": "0x74957",
-            "contactNumber": "+1 (804) 481-3165",
-            "address": "298 Danforth Street, Sanders, South Dakota, 8508",
-            "registered": "2018-08-05"
-          },
-          {
-            "_chipId": "5bb1e46de5c665cfd009703e",
-            "chipId": 75,
-            "type": "dog",
-            "name": "Ina",
-            "picture": "https://images.dog.ceo/breeds/doberman/n02107142_14813.jpg",
-            "breed": "Doberman",
-            "sex": "F",
-            "color": "gray",
-            "dateOfBirth": "2016-02-27",
-            "bloodType": "DEA+",
-            "weight": 13,
-            "numOfVaccines": "",
-            "lastChange": "2018-02-02",
-            "owner": "0x57693",
-            "contactNumber": "+1 (906) 522-2382",
-            "address": "116 Harman Street, Staples, New York, 6108",
-            "registered": "2018-04-07"
-          },
-          {
-            "_chipId": "5bb1e46d47fc236b8af27054",
-            "chipId": 92,
-            "type": "dog",
-            "name": "Boone",
-            "picture": "https://images.dog.ceo/breeds/germanshepherd/n02106662_1637.jpg",
-            "breed": "German Shepherd",
-            "sex": "F",
-            "color": "gray",
-            "dateOfBirth": "2016-01-21",
-            "bloodType": "DEA",
-            "weight": 27,
-            "numOfVaccines": "",
-            "lastChange": "2018-05-29",
-            "owner": "0x54954",
-            "contactNumber": "+1 (812) 534-2621",
-            "address": "992 Humboldt Street, Tonopah, Florida, 1094",
-            "registered": "2016-07-09"
+            "registered": "2017-07-25",
+            "ownerId": 1
           },
           {
             "_chipId": "5bb1e46d0b1b4f970b13b99f",
@@ -119,7 +43,8 @@ class SearchPage extends Component {
             "owner": "0x43808",
             "contactNumber": "+1 (823) 470-3060",
             "address": "981 Radde Place, Madaket, Hawaii, 6875",
-            "registered": "2017-11-14"
+            "registered": "2017-11-14",
+            "ownerId": 2
           },
           {
             "_chipId": "5bb1e46d58bd5beabcb5ddfd",
@@ -138,7 +63,8 @@ class SearchPage extends Component {
             "owner": "0x51241",
             "contactNumber": "+1 (999) 589-3522",
             "address": "668 Pierrepont Street, Esmont, Maine, 2289",
-            "registered": "2018-01-20"
+            "registered": "2018-01-20",
+            "ownerId": 3
           },
           {
             "_chipId": "5bb1e46de30482f3952a6559",
@@ -157,7 +83,8 @@ class SearchPage extends Component {
             "owner": "0x92939",
             "contactNumber": "+1 (904) 477-3197",
             "address": "412 Losee Terrace, Omar, Nevada, 4675",
-            "registered": "2018-03-11"
+            "registered": "2018-03-11",
+            "ownerId": 4
           },
           {
             "_chipId": "5bb1e46d252d47147a36fff8",
@@ -176,7 +103,8 @@ class SearchPage extends Component {
             "owner": "0x35242",
             "contactNumber": "+1 (902) 509-2962",
             "address": "324 Bancroft Place, Cumminsville, Virgin Islands, 7274",
-            "registered": "2016-10-05"
+            "registered": "2016-10-05",
+            "ownerId": 5
           },
           {
             "_chipId": "5bb1e46d0aa776fb4a5b21c7",
@@ -195,7 +123,88 @@ class SearchPage extends Component {
             "owner": "0x113450",
             "contactNumber": "+1 (821) 498-2171",
             "address": "693 Blake Avenue, Savage, Alaska, 606",
-            "registered": "2018-04-05"
+            "registered": "2018-04-05",
+            "ownerId": 6
+          },
+          {
+            "_chipId": "5bb1e46d43a16d3a7d5d96b8",
+            "chipId": 27,
+            "type": "dog",
+            "name": "Lauri",
+            "picture": "https://images.dog.ceo/breeds/malinois/n02105162_1757.jpg",
+            "breed": "Malinois",
+            "sex": "M",
+            "color": "brown",
+            "dateOfBirth": "2016-02-03",
+            "bloodType": "DEA",
+            "weight": 11,
+            "numOfVaccines": "",
+            "lastChange": "2018-06-23",
+            "owner": "0x26036",
+            "contactNumber": "+1 (954) 537-3343",
+            "address": "188 Sunnyside Court, Venice, Louisiana, 4567",
+            "registered": "2016-08-10",
+            "ownerId": 7
+          },
+          {
+            "_chipId": "5bb1e46dcd3d7d18551ee528",
+            "chipId": 12,
+            "type": "dog",
+            "name": "Bush",
+            "picture": "https://images.dog.ceo/breeds/malinois/n02105162_5370.jpg",
+            "breed": "Malinois",
+            "sex": "M",
+            "color": "white",
+            "dateOfBirth": "2016-02-11",
+            "bloodType": "DEA+",
+            "weight": 6,
+            "numOfVaccines": "",
+            "lastChange": "2018-07-27",
+            "owner": "0x74957",
+            "contactNumber": "+1 (804) 481-3165",
+            "address": "298 Danforth Street, Sanders, South Dakota, 8508",
+            "registered": "2018-08-05",
+            "ownerId": 8
+          },
+          {
+            "_chipId": "5bb1e46de5c665cfd009703e",
+            "chipId": 75,
+            "type": "dog",
+            "name": "Ina",
+            "picture": "https://images.dog.ceo/breeds/doberman/n02107142_14813.jpg",
+            "breed": "Doberman",
+            "sex": "F",
+            "color": "gray",
+            "dateOfBirth": "2016-02-27",
+            "bloodType": "DEA+",
+            "weight": 13,
+            "numOfVaccines": "",
+            "lastChange": "2018-02-02",
+            "owner": "0x57693",
+            "contactNumber": "+1 (906) 522-2382",
+            "address": "116 Harman Street, Staples, New York, 6108",
+            "registered": "2018-04-07",
+            "ownerId": 9
+          },
+          {
+            "_chipId": "5bb1e46d47fc236b8af27054",
+            "chipId": 92,
+            "type": "dog",
+            "name": "Boone",
+            "picture": "https://images.dog.ceo/breeds/germanshepherd/n02106662_1637.jpg",
+            "breed": "German Shepherd",
+            "sex": "F",
+            "color": "gray",
+            "dateOfBirth": "2016-01-21",
+            "bloodType": "DEA",
+            "weight": 27,
+            "numOfVaccines": "",
+            "lastChange": "2018-05-29",
+            "owner": "0x54954",
+            "contactNumber": "+1 (812) 534-2621",
+            "address": "992 Humboldt Street, Tonopah, Florida, 1094",
+            "registered": "2016-07-09",
+            "ownerId": 10
           }
         ];
         let chips = [];

@@ -36,30 +36,6 @@ class Dog extends Component {
           "dogId": 53,
           "address": "686 Saratoga Avenue, Westphalia, Palau, 3477",
           "phone": "+1 (852) 500-2770"
-        },
-        {
-          "ownerId": 81,
-          "dogId": 51,
-          "address": "251 Catherine Street, Englevale, Virginia, 2927",
-          "phone": "+1 (832) 542-3354"
-        },
-        {
-          "ownerId": 96,
-          "dogId": 27,
-          "address": "640 Kosciusko Street, Brantleyville, Northern Mariana Islands, 4556",
-          "phone": "+1 (924) 484-2785"
-        },
-        {
-          "ownerId": 18,
-          "dogId": 12,
-          "address": "492 Cornelia Street, Nettie, Alaska, 9211",
-          "phone": "+1 (862) 562-3230"
-        },
-        {
-          "ownerId": 95,
-          "dogId": 75,
-          "address": "154 Congress Street, Kenvil, Iowa, 6403",
-          "phone": "+1 (802) 531-2809"
         }
       ];
       let stateObj = {};

@@ -89,7 +89,7 @@ class SearchPage extends Component {
           
         ];
         let chips = [];
-        let indexes = this.dogDB.map(dog => {
+         this.dogDB.map(dog => {
           chips.push(dog.chipId);
         })
         this.state = {
@@ -103,27 +103,27 @@ class SearchPage extends Component {
       }
     
       handleSearch = () => {
-        //TODO get chip by id
-        let apiCallbackResult = {
-          "_chipId": "5bafde56b55be3796eb835b5",
-          "chipId": '420',
-          "type": "Dog",
-          "name": 'Alaska Chipopo Fluffskin',
-          "picture": "https://images.dog.ceo/breeds/husky/n02110185_4522.jpg",
-          "breed": "Siberian Husky" ,
-          "sex": "F",
-          "color": "white",
-          "dateOfBirth": "2016-02-06",
-          "bloodType": "DEA",
-          "weight": 30,
-          "numOfVaccines": "",
-          "lastChange": "",
-          "owner": "0x23054",
-          "contactNumber": "+1 (915) 518-3554",
-          "address": "200 Eaton Court, Riegelwood, Palau, 3093",
-          "registered": "2017-07-25"
-        }
-        let found  = this.dogDB.find(dog => dog.chipId == this.state.inputValue);
+        // //TODO get chip by id
+        // let apiCallbackResult = {
+        //   "_chipId": "5bafde56b55be3796eb835b5",
+        //   "chipId": '420',
+        //   "type": "Dog",
+        //   "name": 'Alaska Chipopo Fluffskin',
+        //   "picture": "https://images.dog.ceo/breeds/husky/n02110185_4522.jpg",
+        //   "breed": "Siberian Husky" ,
+        //   "sex": "F",
+        //   "color": "white",
+        //   "dateOfBirth": "2016-02-06",
+        //   "bloodType": "DEA",
+        //   "weight": 30,
+        //   "numOfVaccines": "",
+        //   "lastChange": "",
+        //   "owner": "0x23054",
+        //   "contactNumber": "+1 (915) 518-3554",
+        //   "address": "200 Eaton Court, Riegelwood, Palau, 3093",
+        //   "registered": "2017-07-25"
+        // }
+        let found = this.dogDB.find(dog => dog.chipId === this.state.inputValue);
         // if(this.state.inputValue === apiCallbackResult.chipId ){
         if(found){
           // this.setState({result: apiCallbackResult });
@@ -158,7 +158,6 @@ class SearchPage extends Component {
             header={result.name}
             meta={result.breed}
             description={  <span><Icon size="big" name={result.sex === 'M' ? 'man' : 'woman'}/>{result.sex}</span>}
-            extra="Owner ? todo"
             >
             </Card> 
             </Link>
@@ -167,9 +166,9 @@ class SearchPage extends Component {
 
           <div>
             <p>Available demo dogs</p>
-            {this.dogDB.map(dog => {
+            {this.dogDB.map((dog, index) => {
               return (
-                <div>
+                <div key={index}>
                   <Link to={{pathname: "/"+dog.type+"/"+dog.chipId, state: {data: dog}}}>
                     {dog.chipId} - {dog.name}
                   </Link>

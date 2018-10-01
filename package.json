@@ -5,6 +5,7 @@
   "dependencies": {
     "emotion": "^9.2.9",
     "lodash": "^4.17.11",
+    "moment": "^2.22.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-router": "^4.3.1",

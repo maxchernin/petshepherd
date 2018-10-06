@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Tab, Card, Icon, Image } from 'semantic-ui-react';
+import { Tab, Card, Icon, Image, Table } from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 class Dog extends Component {
@@ -37,6 +37,7 @@ class Dog extends Component {
           "phone": "+1 (852) 500-2770"
         }
       ];
+      // this.dogToMedTreat = 
       let stateObj = {};
 
         if(props.location.state){
@@ -46,6 +47,7 @@ class Dog extends Component {
           address: '',
           phone: ''
         };
+        stateObj.activeIndex = 1;
         // stateObj.name = ''; //todo is needed ?
           
       this.state = stateObj;
@@ -64,9 +66,12 @@ class Dog extends Component {
         }
         this.setState({ownerInfo: ownerTodogMatch || {}})
     }
+
+    // handleTabChange = e => {this.setState({activeIndex: e.target.value})};
+    handleTabChange = (e, { activeIndex }) => this.setState({ activeIndex })
   
     render() {
-    const { name, picture, breed, dateOfBirth, sex, color, bloodType, weight, numOfVaccines, registered} = this.state;
+    const { activeIndex, name, picture, breed, dateOfBirth, sex, color, bloodType, weight, numOfVaccines, registered} = this.state;
     const {address, phone} = this.state.ownerInfo;
     const panes = [
       { menuItem: {key: 'details', icon: 'info circle', content: name + "'s Details"}, render: () => {
@@ -98,17 +103,92 @@ class Dog extends Component {
       {
         menuItem: {key: 'records', icon: 'medkit', content: "Medical records"},
         render: () => {
-          return (<Tab.Pane>
-            History
-          </Tab.Pane>)
-        }
-      }
+          return (<div>
+            <Tab.Pane>
+              <h1>{name}</h1>
+              <Table celled>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell rowSpan='2'>Known Allergies and Symptoms</Table.HeaderCell>
+                    {/* <Table.HeaderCell rowSpan='2'>Handling Vet</Table.HeaderCell> */}
+                    {/* <Table.HeaderCell colSpan='2'>Vaccines</Table.HeaderCell> */}
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
+                  <Table.Row>
+                      <Table.Cell>Allergy A</Table.Cell>
+                    </Table.Row>
+                  <Table.Row>
+                    <Table.Cell>Allergy B</Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+              </Table>
+          
+              <Table celled>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell rowSpan="1" colSpan="5">
+                  Treatments
+                  </Table.HeaderCell>
+                </Table.Row>
+      <Table.Row>
+        <Table.HeaderCell rowSpan='2'>Date</Table.HeaderCell>
+        <Table.HeaderCell rowSpan='2'>Handling Vet</Table.HeaderCell>
+        {/* <Table.HeaderCell rowSpan='2'>Vaccines</Table.HeaderCell> */}
+        <Table.HeaderCell colSpan='2'>Vaccines</Table.HeaderCell>
+        <Table.HeaderCell rowSpan='2'>Description</Table.HeaderCell>
+      </Table.Row>
+      <Table.Row>
+        <Table.HeaderCell>Rabies</Table.HeaderCell>
+        <Table.HeaderCell>Park Worm</Table.HeaderCell>
+        {/* <Table.HeaderCell>Python</Table.HeaderCell> */}
+        {/* <Table.HeaderCell>Python</Table.HeaderCell> */}
+      </Table.Row>
+    </Table.Header>
+     <Table.Body>
+     <Table.Row>
+        <Table.Cell>20/4/2018</Table.Cell>
+        <Table.Cell>DR. Jhon Wick</Table.Cell>
+        <Table.Cell textAlign='center'>
+          <Icon color='green' name='checkmark' size='large' />
+        </Table.Cell>
+        <Table.Cell textAlign='center'>
+          <Icon color='green' name='checkmark' size='large' />
+        </Table.Cell>
+        <Table.Cell textAlign='center'>
+        desc
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>20/4/2017</Table.Cell>
+        <Table.Cell>DR. Jhon Wick</Table.Cell>
+        <Table.Cell textAlign='center'>
+          <Icon color='green' name='checkmark' size='large' />
+        </Table.Cell>
+        <Table.Cell textAlign='center'>
+          {/* <Icon color='green' name='checkmark' size='large' /> */}
+        </Table.Cell>
+        <Table.Cell textAlign='center'>
+        desc
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+              </Table>
+          </Tab.Pane>
+          </div>)
+          }
+    }
     ]  
     console.log(this.state);
       return ( 
         <div >
           {/* <Link to="/"><Icon name="reply"/>Back to search</Link> */}
-          <Tab menu={{color: 'olive', inverted: true, secondary: true, pointing: true}} panes={panes}/>
+          <Tab 
+          activeIndex={activeIndex} 
+          menu={{color: 'olive', inverted: true, secondary: true, pointing: true}} 
+          panes={panes}
+          onTabChange={this.handleTabChange}
+          />
           <Link to="/"><Icon name="reply"/>Back to search</Link>
         </div>
       )

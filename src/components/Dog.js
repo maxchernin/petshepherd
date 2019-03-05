@@ -155,7 +155,7 @@ class Dog extends Component {
         <Table.Cell textAlign='center'>
           <Icon color='green' name='checkmark' size='large' />
         </Table.Cell>
-        <Table.Cell textAlign='center'>
+        <Table.Cell>
         desc
         </Table.Cell>
       </Table.Row>
@@ -168,7 +168,7 @@ class Dog extends Component {
         <Table.Cell textAlign='center'>
           {/* <Icon color='green' name='checkmark' size='large' /> */}
         </Table.Cell>
-        <Table.Cell textAlign='center'>
+        <Table.Cell>
         desc
         </Table.Cell>
       </Table.Row>
@@ -177,7 +177,12 @@ class Dog extends Component {
           </Tab.Pane>
           </div>)
           }
-    }
+    },
+    { menuItem: {key: 'bloodline', icon: 'paw', content: name + "'s Bloodline"}, render: () => {
+      return (<Tab.Pane loading={!this.state.name}>
+         Bloodline TODO:
+      </Tab.Pane>) }
+    },
     ]  
     console.log(this.state);
       return ( 
